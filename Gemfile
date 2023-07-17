@@ -6,7 +6,7 @@ gem 'devise'
 gem 'figaro'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.6"
+gem "rails", "~> 7.0.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -73,6 +73,8 @@ group :test do
   gem "webdrivers"
 end
 
-gem "cssbundling-rails", "~> 1.2"
+gem "faker", "~> 2.23"
 
-gem "jsbundling-rails", "~> 1.1"
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.0"
