@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # In the development environment your application's code is reloaded any time
+  # In the development environment, your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
@@ -17,8 +17,8 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  # Enable/disable caching. By default caching is disabled.
-  # Run rails dev:cache to toggle caching.
+  # Enable/disable caching. By default, caching is disabled.
+  # Run `rails dev:cache` to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
@@ -29,7 +29,6 @@ Rails.application.configure do
     }
   else
     config.action_controller.perform_caching = false
-
     config.cache_store = :null_store
   end
 
@@ -67,20 +66,25 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Configure the default URL options for the Devise mailer
   config.action_mailer.default_url_options = { host: 'therailnews.onrender.com', protocol: 'https' }
-  config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.perform_deliveries = true
+
+  # Disable delivery errors and enable SMTP delivery method
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'gabrielgnaciob@zohomail.com'}
   config.action_mailer.delivery_method = :smtp
+
+  # SMTP settings for Zoho Mail
   config.action_mailer.smtp_settings = {
-  address: 'smtp.zoho.com',
-  port: 587,
-  domain: 'teayudovalpo.cl',
-  user_name: ENV["gmail_email"],
-  password: ENV["gmail_password"],
-  authentication: 'plain',
-  enable_starttls_auto: true
-}
+    address: 'smtp.zoho.com',
+    port: 587,
+    domain: 'teayudovalpo.cl',
+    user_name: ENV["gmail_email"],
+    password: ENV["gmail_password"],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  # Force setting :host for all routes in the development environment
+  Rails.application.routes.default_url_options[:host] = 'therailnews.onrender.com'
 end
