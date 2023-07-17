@@ -9,7 +9,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <p><%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token, host: 'therailnews.onrender.com', protocol: 'https') %></p>
   </div>
 <% end %>
 
