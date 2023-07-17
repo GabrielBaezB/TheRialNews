@@ -1,0 +1,44 @@
+<div class="login-section">
+  <div class="form-box login">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h2 class="text-white">Iniciar Sesión</h2>
+      <div class="input-box">
+        <div class="field">
+          <span class="icon"><i class='bx bxs-user-account text-white'></i></span>
+          <%= f.label :email, class: "text-white" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
+      <div class="input-box">
+        <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+        <div class="field">
+          <%= f.label :password, class: "text-white" %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      </div>
+      <div class="remember-password">
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me, class: "text-white" %>
+              <%= f.label :remember_me, class: "text-white" %>
+          </div>
+          <div class="remember-password pt-3">
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <a href="<%= new_password_path(resource_name) %>">Olvidaste tu contraseña</a><br />
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+        <div class="actions">
+          <%= f.button "Ingresar" , class: "btn btn-primary" %>
+          <% end %>
+          <div class="create-account">
+            <p class="text-white">¿Aún no tienes cuenta?<a href="#" class="register-link">
+              <%- if devise_mapping.registerable? && controller_name !='registrations' %>
+              <%= link_to "Registrarse" , new_registration_path(resource_name) %><br />
+              <% end %>
+            </a></p>
+          </div>
+        </div>
+  </div>
+</div>
