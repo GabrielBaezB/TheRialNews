@@ -67,7 +67,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: 'therailnews.onrender.com', protocol: 'https' }
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
