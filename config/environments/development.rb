@@ -58,33 +58,20 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
-
-  # Annotate rendered view with file names.
-  # config.action_view.annotate_rendered_view_with_filenames = true
-
-  # Uncomment if you wish to allow Action Cable access from any origin.
-  # config.action_cable.disable_request_forgery_protection = true
-
-  # Configure the default URL options for the Devise mailer
-  config.action_mailer.default_url_options = { host: 'therailnews.onrender.com', protocol: 'https' }
-
-  # Disable delivery errors and enable SMTP delivery method
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'gabrielgnaciob@zohomail.com'}
   config.action_mailer.delivery_method = :smtp
-
-  # SMTP settings for Zoho Mail
   config.action_mailer.smtp_settings = {
-    address: 'smtp.zoho.com',
-    port: 587,
-    domain: 'teayudovalpo.cl',
-    user_name: ENV["gmail_email"],
-    password: ENV["gmail_password"],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
-
-  # Force setting :host for all routes in the development environment
-  Rails.application.routes.default_url_options[:host] = 'therailnews.onrender.com'
+  address: 'smtp.zoho.com',
+  port: 587,
+  domain: 'teayudovalpo.cl',
+  user_name: ENV["GMAIL_EMAIL"],
+  password: ENV["GMAIL_PASSWORD"],
+  authentication: 'plain',
+  enable_starttls_auto: true
+}
 end
