@@ -68,8 +68,8 @@ Rails.application.configure do
   address: 'smtp.zoho.com',
   port: 587,
   domain: 'teayudovalpo.cl',
-  user_name: ENV["GMAIL_EMAIL"],
-  password: ENV["GMAIL_PASSWORD"],
+  user_name: "gabrielgnaciob@zohomail.com",
+  password: "Vea7h.x8\"spzjb+",
   authentication: 'plain',
   enable_starttls_auto: true
 }
